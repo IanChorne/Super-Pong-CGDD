@@ -9,6 +9,7 @@ public class Paddles : MonoBehaviour
     public float speed = 5;
     private float movement;
     public Vector3 startPosition;
+    public Vector3 initialSize;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +35,6 @@ public class Paddles : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         transform.position = startPosition;
+        transform.localScale = initialSize;
     }
 }

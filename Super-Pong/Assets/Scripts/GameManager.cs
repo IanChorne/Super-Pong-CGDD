@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
         ball.GetComponent<Ball>().Reset();
         leftPaddle.GetComponent<Paddles>().Reset();
         rightPaddle.GetComponent<Paddles>().Reset();
+        ball.GetComponent<PowerupManager>().Reset();
     }
     
     // Start is called before the first frame update

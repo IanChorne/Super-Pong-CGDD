@@ -8,6 +8,9 @@ public class PowerupManager : MonoBehaviour
     
     public GameObject currentPlayer = null, previousPlayer = null;
 
+    //For Testing
+    public List<GameObject> PowerTest = new List<GameObject>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,13 +41,31 @@ public class PowerupManager : MonoBehaviour
         switch(a.gameObject.tag)
         {
             case "WidePaddle":
-                currentPlayer.transform.localScale = new Vector2(0.25f, 3f);
-                Destroy(a.gameObject);
+                currentPlayer.transform.localScale = new Vector3(0.25f, 3f, 1f);
+                a.gameObject.SetActive(false);
+                //Destroy(a.gameObject);
                 break;
             case "SpeedUp":
                 break;
             case "ReverseControl":
                 break;
         }
+    }
+
+    //will later be used to destroy all powerups on the field
+    //but for now it to set active the Powerups for testing
+    public void Reset()
+    {
+        //for testing purpose only
+        for(int i = 0; i < PowerTest.Count; i++)
+        {
+            PowerTest[i].SetActive(true);
+        }
+    }
+
+    //to spawn the powerups
+    void PowerupSpawner()
+    {
+
     }
 }
