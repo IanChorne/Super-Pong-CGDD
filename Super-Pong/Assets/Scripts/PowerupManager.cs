@@ -5,7 +5,6 @@ using UnityEngine;
 public class PowerupManager : MonoBehaviour
 {
     //Tags: Player, SpeedUp, WidePaddle, ShrinkPaddle
-    
     public GameObject currentPlayer = null, previousPlayer = null;
 
     //For Testing

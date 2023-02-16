@@ -969,6 +969,7 @@ MonoBehaviour:
   rb: {fileID: 634393066}
   speed: 5
   startPosition: {x: 0, y: 0, z: 0}
+  initialSize: {x: 0.25, y: 2, z: 1}
 --- !u!1 &775789658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1120,7 @@ MonoBehaviour:
   rb: {fileID: 775789662}
   speed: 5
   startPosition: {x: 0, y: 0, z: 0}
+  initialSize: {x: 0.25, y: 2, z: 1}
 --- !u!1 &1120832371
 GameObject:
   m_ObjectHideFlags: 0
@@ -2283,3 +2285,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPlayer: {fileID: 0}
+  previousPlayer: {fileID: 0}
+  PowerTest:
+  - {fileID: 1882004349}
+  - {fileID: 314326988}
+  - {fileID: 546531694}
+  - {fileID: 162154685}
