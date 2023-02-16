@@ -5,8 +5,8 @@ using UnityEngine;
 public class PowerupManager : MonoBehaviour
 {
     //Tags: Player, SpeedUp, WidePaddle, ShrinkPaddle
-
-    public GameObject currentPlayer = null;
+    
+    public GameObject currentPlayer = null, previousPlayer = null;
 
 
     // Start is called before the first frame update
@@ -23,13 +23,16 @@ public class PowerupManager : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D o)
     {
-        //check the GameObject's tag
+        //When the ball hits a paddle
+        //Saves the paddle that last hit the ball as the currentPlayer
         if(o.gameObject.tag == "Player")
         {
+            previousPlayer = currentPlayer;
             currentPlayer = o.gameObject;
         }
     }
 
+    //activates the powerups
     void OnTriggerEnter2D(Collider2D a)
     {
         switch(a.gameObject.tag)
@@ -40,7 +43,7 @@ public class PowerupManager : MonoBehaviour
                 break;
             case "SpeedUp":
                 break;
-            case "ShrinkPaddle":
+            case "ReverseControl":
                 break;
         }
     }
