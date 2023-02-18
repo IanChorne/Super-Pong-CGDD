@@ -7,14 +7,19 @@ public class PowerupManager : MonoBehaviour
     //Tags: Player, SpeedUp, WidePaddle, ShrinkPaddle
     public GameObject currentPlayer = null, previousPlayer = null;
 
-    //For Testing
-    public List<GameObject> PowerTest = new List<GameObject>();
+    //List of Powerups to spawn and the current powerups in play
+    public List<GameObject> PowerUpList = new List<GameObject>();
+    public List<GameObject> CurrentPowerUpList = new List<GameObject>();
 
+    //keeping track of powerups
+    int MaximumNumberOfPowerups = 4;
+    int CurrentNumberOfPowerups = 0;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
-        
+        //Waits 1 sec to start repeating method every 3 secs
+        InvokeRepeating("PowerupSpawner", 1.0f, 3.0f);
     }
 
     // Update is called once per frame
@@ -34,39 +39,46 @@ public class PowerupManager : MonoBehaviour
         }
     }
 
-    //activates the powerups
+    //Activates the powerups and gets rid of them
     void OnTriggerEnter2D(Collider2D a)
     {
         switch(a.gameObject.tag)
         {
             case "WidePaddle":
                 currentPlayer.transform.localScale = new Vector3(0.25f, 3f, 1f);
-                a.gameObject.SetActive(false);
-                //Destroy(a.gameObject);
+                Destroy(a.gameObject);
+                CurrentNumberOfPowerups--;
                 break;
             case "SpeedUp":
                 gameObject.GetComponent<Ball>().SpeedUpBall();
-                a.gameObject.SetActive(false);
+                Destroy(a.gameObject);
+                CurrentNumberOfPowerups--;
                 break;
             case "ReverseControl":
                 break;
         }
     }
 
-    //will later be used to destroy all powerups on the field
-    //but for now it to set active the Powerups for testing
+    //Gets rid of all powerups in play
     public void Reset()
     {
-        //for testing purpose only
-        for(int i = 0; i < PowerTest.Count; i++)
+        foreach(GameObject powerup in CurrentPowerUpList)
         {
-            PowerTest[i].SetActive(true);
+            Destroy(powerup);
         }
+
+        CurrentNumberOfPowerups = 0;
     }
 
-    //to spawn the powerups
+    //Spawns random powerup within random set range
     void PowerupSpawner()
     {
+        Vector2 SpawnLocation = new Vector2(Random.Range(-5f, 5f), Random.Range(3f, -3));
+        if (CurrentNumberOfPowerups < MaximumNumberOfPowerups)
+        {
+            CurrentPowerUpList.Add(Instantiate(PowerUpList[Random.Range(0, PowerUpList.Count)], SpawnLocation, this.transform.rotation));
 
+            CurrentNumberOfPowerups++;
+        }
     }
 }
