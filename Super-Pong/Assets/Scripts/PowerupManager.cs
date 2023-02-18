@@ -45,6 +45,8 @@ public class PowerupManager : MonoBehaviour
                 //Destroy(a.gameObject);
                 break;
             case "SpeedUp":
+                gameObject.GetComponent<Ball>().SpeedUpBall();
+                a.gameObject.SetActive(false);
                 break;
             case "ReverseControl":
                 break;

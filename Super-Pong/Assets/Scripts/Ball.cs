@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float speed;
+    public float increasedSpeed = 1.2f;
     public Rigidbody2D rb;
     public Vector3 startPosition;
 
@@ -34,5 +35,10 @@ public class Ball : MonoBehaviour
         rb.velocity = Vector2.zero;
         transform.position = startPosition;
         StartCoroutine(Launch());
+    }
+
+    public void SpeedUpBall()
+    {
+        rb.velocity = new Vector2(rb.velocity.x * increasedSpeed, rb.velocity.y * increasedSpeed);
     }
 }
