@@ -54,7 +54,11 @@ public class PowerupManager : MonoBehaviour
                 Destroy(a.gameObject);
                 CurrentNumberOfPowerups--;
                 break;
-            case "ReverseControl":
+            case "ReverseControls":
+                //gameObject.GetComponent<Paddles>().reverseControls();
+                currentPlayer.GetComponent<Paddles>().reverseControls();
+                Destroy(a.gameObject);
+                CurrentNumberOfPowerups--;
                 break;
         }
     }
