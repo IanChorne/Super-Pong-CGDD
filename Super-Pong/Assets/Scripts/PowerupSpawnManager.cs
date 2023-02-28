@@ -28,6 +28,8 @@ public class PowerupSpawnManager : MonoBehaviour
         }
 
         CurrentNumberOfPowerups = 0;
+        CancelInvoke();
+        InvokeRepeating("PowerupSpawner", 5.0f, 3.0f);
     }
 
     //Spawns random powerup within random set range

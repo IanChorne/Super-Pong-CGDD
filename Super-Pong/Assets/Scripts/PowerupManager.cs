@@ -12,7 +12,7 @@ public class PowerupManager : MonoBehaviour
     public GameObject powerupSpawner;
 
     //Sound Effects
-    public AudioClip aWide, aSpeed, aReverse;
+    public AudioClip aWide, aSmall, aSpeed, aReverse;
 
     void OnCollisionEnter2D(Collision2D o)
     {
@@ -40,6 +40,12 @@ public class PowerupManager : MonoBehaviour
                 currentPlayer.transform.localScale = new Vector3(0.25f, 3f, 1f);
                 Destroy(a.gameObject);
                 PlaySound(aWide);
+                powerupSpawner.GetComponent<PowerupSpawnManager>().CurrentNumberOfPowerups--;
+                break;
+            case "SmallPaddle":
+                previousPlayer.transform.localScale = new Vector3(0.25f, 1f, 1f);
+                Destroy(a.gameObject);
+                PlaySound(aSmall);
                 powerupSpawner.GetComponent<PowerupSpawnManager>().CurrentNumberOfPowerups--;
                 break;
             case "SpeedUp":

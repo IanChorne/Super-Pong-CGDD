@@ -1987,6 +1987,7 @@ MonoBehaviour:
   - {fileID: 5104225036528839054, guid: c91b883b7ae05874c8073cd33195249b, type: 3}
   - {fileID: 261403770186411088, guid: fae31a29ca400a243805cde0febb0ee9, type: 3}
   - {fileID: 5104225036528839054, guid: 24b1ef3900f2b404b89981e4e1a40d48, type: 3}
+  - {fileID: 5104225036528839054, guid: 996354f4cd3217248a232396fb7d558d, type: 3}
   CurrentPowerUpList: []
   MaximumNumberOfPowerups: 4
   CurrentNumberOfPowerups: 0
@@ -2392,6 +2393,7 @@ MonoBehaviour:
   previousPlayer: {fileID: 0}
   powerupSpawner: {fileID: 1637362666}
   aWide: {fileID: 8300000, guid: 6ffd7fa42cd2e90488a0b5b98a734293, type: 3}
+  aSmall: {fileID: 8300000, guid: d671ff63d8f27c94e88992aad4ae9453, type: 3}
   aSpeed: {fileID: 8300000, guid: 1c78c199f1eea964e9d9077487b9806a, type: 3}
   aReverse: {fileID: 8300000, guid: e5b9d64de6474354f9f75772fa1c80bb, type: 3}
 --- !u!82 &1971535863

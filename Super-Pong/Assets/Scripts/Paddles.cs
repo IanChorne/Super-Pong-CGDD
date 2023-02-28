@@ -49,7 +49,7 @@ public class Paddles : MonoBehaviour
     //Added by Ian in branch ReverseControls
     public void reverseControls()
     {
-        reverse = true;
+        if (!reverse){ reverse = true; }else { reverse = false; }
 
         if (isLeftPaddle == true)
         {
@@ -57,12 +57,20 @@ public class Paddles : MonoBehaviour
             {
                 movement = -Input.GetAxisRaw("Vertical");
             }
+            else
+            {
+                movement = Input.GetAxisRaw("Vertical");
+            }
         }
         if (isLeftPaddle == false)
         {
             if (reverse)
             {
                 movement = -Input.GetAxisRaw("Vertical2");
+            }
+            else
+            {
+                movement = Input.GetAxisRaw("Vertical2");
             }
         }
         rb.velocity = new Vector2(rb.velocity.x, movement * speed);

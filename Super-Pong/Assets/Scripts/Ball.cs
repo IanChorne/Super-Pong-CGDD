@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float speed;
-    public float increasedSpeed = 1.2f;
+    public float increasedSpeed = 1.1f;
     public Rigidbody2D rb;
     public Vector3 startPosition;
 
