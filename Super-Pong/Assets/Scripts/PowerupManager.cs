@@ -7,19 +7,12 @@ public class PowerupManager : MonoBehaviour
     //Tags: Player, SpeedUp, WidePaddle, ShrinkPaddle
     public GameObject currentPlayer = null, previousPlayer = null;
 
-    //List of Powerups to spawn and the current powerups in play
-    public List<GameObject> PowerUpList = new List<GameObject>();
-    public List<GameObject> CurrentPowerUpList = new List<GameObject>();
+    //get PowerupSpawnManager
+    public GameObject powerupSpawner;
 
-    //keeping track of powerups
-    int MaximumNumberOfPowerups = 4;
-    int CurrentNumberOfPowerups = 0;
-
-    
     void Start()
     {
-        //Waits 1 sec to start repeating method every 3 secs
-        InvokeRepeating("PowerupSpawner", 1.0f, 3.0f);
+        
     }
 
     // Update is called once per frame
@@ -47,42 +40,19 @@ public class PowerupManager : MonoBehaviour
             case "WidePaddle":
                 currentPlayer.transform.localScale = new Vector3(0.25f, 3f, 1f);
                 Destroy(a.gameObject);
-                CurrentNumberOfPowerups--;
+                powerupSpawner.GetComponent<PowerupSpawnManager>().CurrentNumberOfPowerups--;
                 break;
             case "SpeedUp":
                 gameObject.GetComponent<Ball>().SpeedUpBall();
                 Destroy(a.gameObject);
-                CurrentNumberOfPowerups--;
+                powerupSpawner.GetComponent<PowerupSpawnManager>().CurrentNumberOfPowerups--;
                 break;
             case "ReverseControls":
                 //gameObject.GetComponent<Paddles>().reverseControls();
                 currentPlayer.GetComponent<Paddles>().reverseControls();
                 Destroy(a.gameObject);
-                CurrentNumberOfPowerups--;
+                powerupSpawner.GetComponent<PowerupSpawnManager>().CurrentNumberOfPowerups--;
                 break;
-        }
-    }
-
-    //Gets rid of all powerups in play
-    public void Reset()
-    {
-        foreach(GameObject powerup in CurrentPowerUpList)
-        {
-            Destroy(powerup);
-        }
-
-        CurrentNumberOfPowerups = 0;
-    }
-
-    //Spawns random powerup within random set range
-    void PowerupSpawner()
-    {
-        Vector2 SpawnLocation = new Vector2(Random.Range(-5f, 5f), Random.Range(3f, -3));
-        if (CurrentNumberOfPowerups < MaximumNumberOfPowerups)
-        {
-            CurrentPowerUpList.Add(Instantiate(PowerUpList[Random.Range(0, PowerUpList.Count)], SpawnLocation, this.transform.rotation));
-
-            CurrentNumberOfPowerups++;
         }
     }
 }
