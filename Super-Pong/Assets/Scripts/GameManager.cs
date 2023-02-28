@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("SpawnManager")]
+    public GameObject spawnManager;
+
     [Header("Ball")]
     public GameObject ball;
 
@@ -42,7 +45,7 @@ public class GameManager : MonoBehaviour
         ball.GetComponent<Ball>().Reset();
         leftPaddle.GetComponent<Paddles>().Reset();
         rightPaddle.GetComponent<Paddles>().Reset();
-        ball.GetComponent<PowerupManager>().Reset();
+        spawnManager.GetComponent<PowerupSpawnManager>().Reset();
     }
     
 

@@ -966,6 +966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a02fc498ac546c46b563ce5b7497101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnManager: {fileID: 1637362666}
   ball: {fileID: 1971535856}
   leftPaddle: {fileID: 775789658}
   leftGoal: {fileID: 1437509183}
@@ -1433,6 +1434,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLeftGoal: 0
+--- !u!1 &1637362666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1637362668}
+  - component: {fileID: 1637362667}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1637362667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637362666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d69aed944979f54dacd28096365b5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PowerUpList:
+  - {fileID: 5104225036528839054, guid: c91b883b7ae05874c8073cd33195249b, type: 3}
+  - {fileID: 261403770186411088, guid: fae31a29ca400a243805cde0febb0ee9, type: 3}
+  - {fileID: 5104225036528839054, guid: 24b1ef3900f2b404b89981e4e1a40d48, type: 3}
+  CurrentPowerUpList: []
+  MaximumNumberOfPowerups: 4
+  CurrentNumberOfPowerups: 0
+--- !u!4 &1637362668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637362666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.9487867, y: 1.664654, z: 0.07219894}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1737667163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,7 +1869,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlayer: {fileID: 0}
   previousPlayer: {fileID: 0}
-  PowerUpList:
-  - {fileID: 5104225036528839054, guid: c91b883b7ae05874c8073cd33195249b, type: 3}
-  - {fileID: 261403770186411088, guid: fae31a29ca400a243805cde0febb0ee9, type: 3}
-  CurrentPowerUpList: []
+  powerupSpawner: {fileID: 1637362666}

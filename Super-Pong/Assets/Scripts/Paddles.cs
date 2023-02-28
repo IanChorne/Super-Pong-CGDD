@@ -11,6 +11,8 @@ public class Paddles : MonoBehaviour
     public Vector3 startPosition;
     public Vector3 initialSize;
 
+    bool reverse = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,11 @@ public class Paddles : MonoBehaviour
             movement = Input.GetAxisRaw("Vertical2");   
         }
         rb.velocity = new Vector2(rb.velocity.x, movement * speed);
+
+        if(reverse == true)
+        {
+            reverseControls();
+        }
     }
 
     public void Reset()
@@ -37,4 +44,21 @@ public class Paddles : MonoBehaviour
         transform.position = startPosition;
         transform.localScale = initialSize;
     }
+
+    //Added by Ian in branch ReverseControls
+    public bool reverseControls()
+    {
+        reverse = true;
+        if (isLeftPaddle == true)
+        {
+            movement = -Input.GetAxisRaw("Vertical");
+        }
+        if (isLeftPaddle == false)
+        {
+            movement = -Input.GetAxisRaw("Vertical2");
+        }
+        rb.velocity = new Vector2(rb.velocity.x, movement * speed);
+        return true;
+    }
+
 }
