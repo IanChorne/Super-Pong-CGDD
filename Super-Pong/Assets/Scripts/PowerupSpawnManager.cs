@@ -15,14 +15,8 @@ public class PowerupSpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Waits 1 sec to start repeating method every 3 secs
-        InvokeRepeating("PowerupSpawner", 1.0f, 3.0f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //Waits 5 sec to start repeating method every 3 secs
+        InvokeRepeating("PowerupSpawner", 5.0f, 3.0f);
     }
 
     //Gets rid of all powerups in play

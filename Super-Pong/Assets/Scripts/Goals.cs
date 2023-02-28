@@ -10,6 +10,8 @@ public class Goals : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
+            this.gameObject.GetComponent<AudioSource>().Play();
+
             if (isLeftGoal)
             {
                 GameObject.Find("GameManager").GetComponent<GameManager>().RightPlayerScored();

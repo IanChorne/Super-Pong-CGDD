@@ -43,22 +43,29 @@ public class Paddles : MonoBehaviour
         rb.velocity = Vector2.zero;
         transform.position = startPosition;
         transform.localScale = initialSize;
+        reverse = false;
     }
 
     //Added by Ian in branch ReverseControls
-    public bool reverseControls()
+    public void reverseControls()
     {
         reverse = true;
+
         if (isLeftPaddle == true)
         {
-            movement = -Input.GetAxisRaw("Vertical");
+            if (reverse)
+            {
+                movement = -Input.GetAxisRaw("Vertical");
+            }
         }
         if (isLeftPaddle == false)
         {
-            movement = -Input.GetAxisRaw("Vertical2");
+            if (reverse)
+            {
+                movement = -Input.GetAxisRaw("Vertical2");
+            }
         }
         rb.velocity = new Vector2(rb.velocity.x, movement * speed);
-        return true;
     }
 
 }

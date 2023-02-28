@@ -16,12 +16,6 @@ public class Ball : MonoBehaviour
         StartCoroutine(Launch());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator Launch()
     {
         yield return new WaitForSeconds(1.5f);
