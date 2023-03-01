@@ -24,35 +24,6 @@ public class Paddles : MonoBehaviour
     {
         if (isLeftPaddle == true)
         {
-            movement = Input.GetAxisRaw("Vertical");
-        }
-        if (isLeftPaddle == false)
-        {
-            movement = Input.GetAxisRaw("Vertical2");   
-        }
-        rb.velocity = new Vector2(rb.velocity.x, movement * speed);
-
-        if(reverse == true)
-        {
-            reverseControls();
-        }
-    }
-
-    public void Reset()
-    {
-        rb.velocity = Vector2.zero;
-        transform.position = startPosition;
-        transform.localScale = initialSize;
-        reverse = false;
-    }
-
-    //Added by Ian in branch ReverseControls
-    public void reverseControls()
-    {
-        if (!reverse){ reverse = true; }else { reverse = false; }
-
-        if (isLeftPaddle == true)
-        {
             if (reverse)
             {
                 movement = -Input.GetAxisRaw("Vertical");
@@ -74,6 +45,20 @@ public class Paddles : MonoBehaviour
             }
         }
         rb.velocity = new Vector2(rb.velocity.x, movement * speed);
+    }
+
+    public void Reset()
+    {
+        rb.velocity = Vector2.zero;
+        transform.position = startPosition;
+        transform.localScale = initialSize;
+        reverse = false;
+    }
+
+    //Added by Ian in branch ReverseControls
+    public void reverseControls()
+    {
+        if (!reverse){ reverse = true; }else { reverse = false; }
     }
 
 }
