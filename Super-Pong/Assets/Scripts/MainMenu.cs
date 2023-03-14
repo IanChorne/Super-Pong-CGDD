@@ -5,6 +5,7 @@ using System.IO;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
@@ -41,6 +42,9 @@ public class MainMenu : MonoBehaviour
 
     public void quitGame()
     {
-        //Quit game
+        Application.Quit();
+
+        //Exit the editor as well
+        EditorApplication.isPlaying = false;
     }
 }
