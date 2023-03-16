@@ -26,6 +26,10 @@ public class MainMenu : MonoBehaviour
     ///  3: Powerup Description
     ///  4: Quits the game
 
+    public void returnToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void playGame()
     {
         SceneManager.LoadScene(1);  
