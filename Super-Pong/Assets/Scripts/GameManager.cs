@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     [Header("SpawnManager")]
     public GameObject spawnManager;
 
+    [Header("WallManager")]
+    public GameObject wallManager;
+
     [Header("Ball")]
     public GameObject ball;
 
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
         leftPaddle.GetComponent<Paddles>().Reset();
         rightPaddle.GetComponent<Paddles>().Reset();
         spawnManager.GetComponent<PowerupSpawnManager>().Reset();
+        wallManager.GetComponent<BaseBuildingManager>().ResetWalls();
     }
     
 

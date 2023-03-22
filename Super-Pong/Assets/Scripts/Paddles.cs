@@ -8,8 +8,11 @@ public class Paddles : MonoBehaviour
     public Rigidbody2D rb;
     public float speed = 5;
     private float movement;
+    private float spawner;
     public Vector3 startPosition;
     public Vector3 initialSize;
+
+    public GameObject spawnPoint;
 
     bool reverse = false;
 
@@ -32,6 +35,19 @@ public class Paddles : MonoBehaviour
             {
                 movement = Input.GetAxisRaw("Vertical");
             }
+
+            if(spawnPoint.transform.position.x > -1)
+            {
+                spawnPoint.transform.position = new Vector2(-1, transform.position.y);
+            }
+            else if(spawnPoint.transform.position.x < -7)
+            {
+                spawnPoint.transform.position = new Vector2(-7, transform.position.y);
+            }
+            else if (spawnPoint.transform.position.x >= -7 && spawnPoint.transform.position.x <= -1)
+            {
+                spawnPoint.transform.position = new Vector2(spawnPoint.transform.position.x + Input.GetAxisRaw("Horizontal") * 0.01f, transform.position.y);
+            }
         }
         if (isLeftPaddle == false)
         {
@@ -43,8 +59,21 @@ public class Paddles : MonoBehaviour
             {
                 movement = Input.GetAxisRaw("Vertical2");
             }
+            if (spawnPoint.transform.position.x < 1)
+            {
+                spawnPoint.transform.position = new Vector2(1, transform.position.y);
+            }
+            else if (spawnPoint.transform.position.x > 7)
+            {
+                spawnPoint.transform.position = new Vector2(7, transform.position.y);
+            }
+            else if (spawnPoint.transform.position.x <= 7 && spawnPoint.transform.position.x >= 1)
+            {
+                spawnPoint.transform.position = new Vector2(spawnPoint.transform.position.x + Input.GetAxisRaw("Horizontal2") * 0.01f, transform.position.y);
+            }
         }
         rb.velocity = new Vector2(rb.velocity.x, movement * speed);
+   
     }
 
     public void Reset()
