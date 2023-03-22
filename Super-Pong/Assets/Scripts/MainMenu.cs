@@ -49,6 +49,6 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
 
         //Exit the editor as well
-        EditorApplication.isPlaying = false;
+        //EditorApplication.isPlaying = false;
     }
 }
