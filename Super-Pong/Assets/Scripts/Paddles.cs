@@ -17,11 +17,12 @@ public class Paddles : MonoBehaviour
     bool reverse = false;
 
     //variables for sticky paddle
-    //public GameObject ball;
     public string leftPlayer = "Vertical";
     public string rightPlayer = "Vertical2";
     public bool sticky = false;
     public bool ballstuck = false;
+    public float ballspeed = 6;
+    public int stickyLimit = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -81,7 +82,7 @@ public class Paddles : MonoBehaviour
         }
         rb.velocity = new Vector2(rb.velocity.x, movement * speed);
    
-        //Testing child and parent object
+        //code that controls activating the sticky power for their respective players
         if(isLeftPaddle && Input.GetKeyDown(KeyCode.F))
         {
             StickyPowers(leftPlayer);
@@ -92,22 +93,38 @@ public class Paddles : MonoBehaviour
         }
     }
 
+    //code for the sticky paddle powerup
     public void StickyPowers(string controls)
     {
         //ball will detach from the paddle and shoot the ball
-        if(sticky == true && ballstuck == true)
+        if(sticky == true && ballstuck == true && movement != 0)
         {
             GameObject child = this.gameObject.transform.GetChild(0).gameObject;
             child.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             child.transform.parent = null;
+            if(movement < 0)
+            {
+                child.GetComponent<Rigidbody2D>().velocity = new Vector2(ballspeed, -ballspeed);
+            }
+            else if(movement > 0)
+            {
+                child.GetComponent<Rigidbody2D>().velocity = new Vector2(ballspeed, ballspeed);
+            }
+            //else
+            //{
+            //    child.GetComponent<Rigidbody2D>().velocity = new Vector2(ballspeed, 0);
+            //}
+            sticky = false;
+            stickyLimit--;
         }
         //active that sticky powers
-        else if(sticky == false)
+        else if(sticky == false && stickyLimit > 0)
         {
             sticky = true;
         }
     }
 
+    //when the sticky paddle powerup is active the ball stick to the paddle
     void OnCollisionEnter2D(Collision2D o)
     {
         //the ball will become the child of the paddle it collides with so that the ball will move with the paddle
