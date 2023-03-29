@@ -24,7 +24,8 @@ public class MainMenu : MonoBehaviour
     ///  1: Play Game
     ///  2: Instructions
     ///  3: Powerup Description
-    ///  4: Quits the game
+    ///  4: Right Victory Screen
+    ///  5: Left Victory Screen
 
     public void returnToMenu()
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -56,6 +57,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Win condition
+        if (leftScore >= 11)
+        {
+            SceneManager.LoadScene(5);
+        }
+        if (rightScore >= 11)
+        {
+            SceneManager.LoadScene(4);
+        }
+
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
