@@ -56,7 +56,7 @@ public class PowerupManager : MonoBehaviour
                 break;
             case "ReverseControls":
                 //gameObject.GetComponent<Paddles>().reverseControls();
-                currentPlayer.GetComponent<Paddles>().reverseControls();
+                previousPlayer.GetComponent<Paddles>().reverseControls();
                 Destroy(a.gameObject);
                 PlaySound(aReverse);
                 powerupSpawner.GetComponent<PowerupSpawnManager>().CurrentNumberOfPowerups--;
