@@ -730,6 +730,12 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   initialSize: {x: 0.25, y: 2, z: 1}
   spawnPoint: {fileID: 1157637818}
+  leftPlayer: Vertical
+  rightPlayer: Vertical2
+  sticky: 0
+  ballstuck: 0
+  ballspeed: 6
+  stickyLimit: 3
 --- !u!82 &634393068
 AudioSource:
   m_ObjectHideFlags: 0
@@ -979,6 +985,12 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   initialSize: {x: 0.25, y: 2, z: 1}
   spawnPoint: {fileID: 796317181}
+  leftPlayer: Vertical
+  rightPlayer: Vertical2
+  sticky: 0
+  ballstuck: 0
+  ballspeed: 6
+  stickyLimit: 3
 --- !u!82 &775789664
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2627,6 +2639,7 @@ MonoBehaviour:
   aSmall: {fileID: 8300000, guid: d671ff63d8f27c94e88992aad4ae9453, type: 3}
   aSpeed: {fileID: 8300000, guid: 1c78c199f1eea964e9d9077487b9806a, type: 3}
   aReverse: {fileID: 8300000, guid: e5b9d64de6474354f9f75772fa1c80bb, type: 3}
+  isExtended: 0
 --- !u!82 &1971535863
 AudioSource:
   m_ObjectHideFlags: 0
