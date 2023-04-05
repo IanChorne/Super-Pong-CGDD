@@ -726,7 +726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLeftPaddle: 0
   rb: {fileID: 634393066}
-  speed: 5
+  speed: 7
   startPosition: {x: 0, y: 0, z: 0}
   initialSize: {x: 0.25, y: 2, z: 1}
   spawnPoint: {fileID: 1157637818}
@@ -981,7 +981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLeftPaddle: 1
   rb: {fileID: 775789662}
-  speed: 5
+  speed: 7
   startPosition: {x: 0, y: 0, z: 0}
   initialSize: {x: 0.25, y: 2, z: 1}
   spawnPoint: {fileID: 796317181}
