@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LeftWinScreen.unity
     guid: 5c30da660122b594fb3a519bda68fc87
+  - enabled: 1
+    path: Assets/Scenes/PauseMenu.unity
+    guid: 24f7982ae2979eb48bac3e0e6e5ea9ba
   m_configObjects: {}

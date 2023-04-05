@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8235294}
+  m_Color: {r: 0.6833386, g: 0.65428084, b: 0.8207547, a: 0.8235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 1188969886}
   - component: {fileID: 1188969885}
   m_Layer: 0
-  m_Name: LoadGameButton
+  m_Name: ResumeGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -577,8 +577,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1441456480}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: playGame
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: resumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -673,7 +673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 53, y: -2}
+  m_AnchoredPosition: {x: 37, y: -5.727}
   m_SizeDelta: {x: 50.2454, y: 11.454}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1236806578
@@ -709,7 +709,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: Resume
 --- !u!222 &1236806579
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -745,7 +745,7 @@ RectTransform:
   m_GameObject: {fileID: 1244646908}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.2875, y: 12.25887, z: 1}
+  m_LocalScale: {x: 15.123859, y: 18.848013, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 693063386}
@@ -753,8 +753,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000043869, y: 288}
-  m_SizeDelta: {x: 44.9666, y: 9.1776}
+  m_AnchoredPosition: {x: 26, y: 321}
+  m_SizeDelta: {x: 29.292, y: 10.4789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244646910
 MonoBehaviour:
@@ -789,7 +789,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SUPER PONG
+  m_Text: PAUSED
 --- !u!222 &1244646911
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -836,7 +836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000012398, y: 23}
+  m_AnchoredPosition: {x: 0.000012398, y: 28}
   m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1334835562
@@ -884,7 +884,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1441456480}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: loadInstructions
         m_Mode: 1
         m_Arguments:
@@ -1192,7 +1192,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1441456475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4da42f241775974b88129a93dd610a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 194b0e113d62705478cce53047334531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!82 &1441456481
@@ -1752,7 +1752,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1441456480}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: quitGame
         m_Mode: 1
         m_Arguments:
@@ -1899,7 +1899,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1441456480}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: explainPowerups
         m_Mode: 1
         m_Arguments:

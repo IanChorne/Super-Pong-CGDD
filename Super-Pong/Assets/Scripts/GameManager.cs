@@ -67,9 +67,10 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(4);
         }
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
-            Application.Quit();
+            //Application.Quit();
+            SceneManager.LoadScene(6);
         }
     }
 }
