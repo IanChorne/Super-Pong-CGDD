@@ -21,8 +21,8 @@ public class Paddles : MonoBehaviour
     public string rightPlayer = "Vertical2";
     public bool sticky = false;
     public bool ballstuck = false;
-    //public float ballspeed = 6;
-    public Vector2 ballspeed;
+    public float verticalBallspeed;
+    public float horizontalBallspeed;
     public int stickyLimit = 3;
 
     // Start is called before the first frame update
@@ -92,10 +92,6 @@ public class Paddles : MonoBehaviour
         {
             StickyPowers(rightPlayer);
         }
-
-        Debug.Log("x velocity: " + ballspeed.x);
-        Debug.Log("y velocity: " + ballspeed.y);
-        Debug.Log("movement: " + movement);
     }
 
     //code for the sticky paddle powerup
@@ -108,22 +104,16 @@ public class Paddles : MonoBehaviour
             child.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             child.transform.parent = null;
             
-            //NOTE: to fix the issue you need to set the vectors x & y as positive before it goes through the if statement
-            // also some how set the angle as 45 degrees
+            //control the direction of the y vector depending which way the paddle moves
             if(movement < 0)
             {
-                child.GetComponent<Rigidbody2D>().velocity = new Vector2(ballspeed.x, -ballspeed.y);
-                //child.GetComponent<Rigidbody2D>().velocity = new Vector2(ballspeed, -ballspeed);
+                child.GetComponent<Rigidbody2D>().velocity = new Vector2(horizontalBallspeed, -verticalBallspeed);
             }
             else if(movement > 0)
             {
-                child.GetComponent<Rigidbody2D>().velocity = new Vector2(ballspeed.x, ballspeed.y);
-                //child.GetComponent<Rigidbody2D>().velocity = new Vector2(ballspeed, ballspeed);
+                child.GetComponent<Rigidbody2D>().velocity = new Vector2(horizontalBallspeed, verticalBallspeed);
             }
-            //else
-            //{
-            //    child.GetComponent<Rigidbody2D>().velocity = new Vector2(ballspeed, 0);
-            //}
+
             sticky = false;
             stickyLimit--;
         }
@@ -139,13 +129,33 @@ public class Paddles : MonoBehaviour
     {
         float xPosition = o.gameObject.transform.position.x;
         //the ball will become the child of the paddle it collides with so that the ball will move with the paddle
+        //the 7.7 is to set the boundary of where the ball can stick since there were issues of the ball getting stuck at the bottom and top of the paddles
         if (sticky == true && o.gameObject.tag == "Ball" && (xPosition > -7.7 && xPosition < 7.7))
         {
-            ballspeed = o.gameObject.GetComponent<Rigidbody2D>().velocity;
+            CalculateSpeed(o.gameObject.GetComponent<Rigidbody2D>().velocity);
             o.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             o.gameObject.transform.parent = this.gameObject.transform;
             o.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             ballstuck = true;
+        }
+    }
+
+    //calculate the vector so the ball will launch at a 45 degree angles so the x and y vector should be the same number
+    public void CalculateSpeed(Vector2 speed)
+    {
+        float angleInRadian = Mathf.PI/4;
+        
+        //calculate the hypotenuse
+        float vectorSpeed = Mathf.Sqrt(Mathf.Pow(speed.x, 2f) + Mathf.Pow(speed.y, 2f));
+
+        //calcute the x and y of the vector
+        verticalBallspeed = vectorSpeed * Mathf.Sin(angleInRadian);
+        horizontalBallspeed = verticalBallspeed;
+
+        //for the x vector depending on if the paddle is the left or right
+        if (isLeftPaddle == false)
+        {
+            horizontalBallspeed *= -1;
         }
     }
 
