@@ -27,12 +27,21 @@ public class GameManager : MonoBehaviour
     public GameObject leftText;
     public GameObject rightText;
 
-    private int leftScore;
-    private int rightScore;
+    public int leftScore;
+    public int rightScore;
+
+    private void Start()
+    {
+        leftScore = PlayerPrefs.GetInt("LeftPlayerScore");
+        rightScore = PlayerPrefs.GetInt("RightPlayerScore");
+        rightText.GetComponent<TextMeshProUGUI>().text = rightScore.ToString();
+        leftText.GetComponent<TextMeshProUGUI>().text = leftScore.ToString();
+    }
 
     public void LeftPlayerScored()
     {
         leftScore++;
+        PlayerPrefs.SetInt("LeftPlayerScore", leftScore);
         leftText.GetComponent<TextMeshProUGUI>().text = leftScore.ToString();
         ResetPosition();
     }
@@ -40,6 +49,7 @@ public class GameManager : MonoBehaviour
     public void RightPlayerScored()
     {
         rightScore++;
+        PlayerPrefs.SetInt("RightPlayerScore", rightScore);
         rightText.GetComponent<TextMeshProUGUI>().text = rightScore.ToString();
         ResetPosition();
     }
@@ -60,10 +70,14 @@ public class GameManager : MonoBehaviour
         // Win condition
         if (leftScore >= 11)
         {
+            PlayerPrefs.SetInt("LeftPlayerScore", 0);
+            PlayerPrefs.SetInt("RightPlayerScore", 0);
             SceneManager.LoadScene(5);
         }
         if (rightScore >= 11)
         {
+            PlayerPrefs.SetInt("LeftPlayerScore", 0);
+            PlayerPrefs.SetInt("RightPlayerScore", 0);
             SceneManager.LoadScene(4);
         }
 
