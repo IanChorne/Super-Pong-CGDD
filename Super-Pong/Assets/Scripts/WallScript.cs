@@ -9,7 +9,10 @@ public class WallScript : MonoBehaviour
     {
         if (collision.collider.tag == "Ball")
         {
-            Destroy(gameObject);
+            GetComponent<ParticleSystem>().Play();
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            Destroy(gameObject,3f);
         }
     }
 }

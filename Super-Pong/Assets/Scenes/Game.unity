@@ -153,19 +153,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallListLeft:
-  - {fileID: 176477541638172668, guid: c5f122055c62d3c4a89cceb29a82c799, type: 3}
-  - {fileID: 176477541638172668, guid: c5f122055c62d3c4a89cceb29a82c799, type: 3}
-  - {fileID: 176477541638172668, guid: c5f122055c62d3c4a89cceb29a82c799, type: 3}
-  - {fileID: 176477541638172668, guid: c5f122055c62d3c4a89cceb29a82c799, type: 3}
-  - {fileID: 176477541638172668, guid: c5f122055c62d3c4a89cceb29a82c799, type: 3}
+  - {fileID: 176477541638172668, guid: 32233f5768f99c44d8f79cb28754d27f, type: 3}
+  - {fileID: 176477541638172668, guid: 32233f5768f99c44d8f79cb28754d27f, type: 3}
+  - {fileID: 176477541638172668, guid: 32233f5768f99c44d8f79cb28754d27f, type: 3}
+  - {fileID: 176477541638172668, guid: 32233f5768f99c44d8f79cb28754d27f, type: 3}
+  - {fileID: 176477541638172668, guid: 32233f5768f99c44d8f79cb28754d27f, type: 3}
   wallListRight:
-  - {fileID: 176477541638172668, guid: c5f122055c62d3c4a89cceb29a82c799, type: 3}
-  - {fileID: 176477541638172668, guid: c5f122055c62d3c4a89cceb29a82c799, type: 3}
-  - {fileID: 176477541638172668, guid: c5f122055c62d3c4a89cceb29a82c799, type: 3}
-  - {fileID: 176477541638172668, guid: c5f122055c62d3c4a89cceb29a82c799, type: 3}
-  - {fileID: 176477541638172668, guid: c5f122055c62d3c4a89cceb29a82c799, type: 3}
+  - {fileID: 176477541638172668, guid: 32233f5768f99c44d8f79cb28754d27f, type: 3}
+  - {fileID: 176477541638172668, guid: 32233f5768f99c44d8f79cb28754d27f, type: 3}
+  - {fileID: 176477541638172668, guid: 32233f5768f99c44d8f79cb28754d27f, type: 3}
+  - {fileID: 176477541638172668, guid: 32233f5768f99c44d8f79cb28754d27f, type: 3}
+  - {fileID: 176477541638172668, guid: 32233f5768f99c44d8f79cb28754d27f, type: 3}
   spawnedWalls: []
-  prefabWall: {fileID: 176477541638172668, guid: c5f122055c62d3c4a89cceb29a82c799, type: 3}
+  prefabWall: {fileID: 176477541638172668, guid: 32233f5768f99c44d8f79cb28754d27f, type: 3}
   LeftSpawnPoint: {fileID: 796317181}
   RightSpawnPoint: {fileID: 1157637818}
 --- !u!4 &218022213
@@ -734,7 +734,8 @@ MonoBehaviour:
   rightPlayer: Vertical2
   sticky: 0
   ballstuck: 0
-  ballspeed: 6
+  verticalBallspeed: 0
+  horizontalBallspeed: 0
   stickyLimit: 3
 --- !u!82 &634393068
 AudioSource:
@@ -989,7 +990,8 @@ MonoBehaviour:
   rightPlayer: Vertical2
   sticky: 0
   ballstuck: 0
-  ballspeed: 6
+  verticalBallspeed: 0
+  horizontalBallspeed: 0
   stickyLimit: 3
 --- !u!82 &775789664
 AudioSource:
@@ -1145,8 +1147,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f82dfc5fc3c5a8f4080a3550427019c8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0.47058827, g: 0.36078432, b: 0.10980393, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1165,7 +1167,7 @@ Transform:
   m_GameObject: {fileID: 796317181}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4, y: 0.014, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1332,7 +1334,7 @@ Transform:
   m_GameObject: {fileID: 1157637818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.82, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1379,8 +1381,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f82dfc5fc3c5a8f4080a3550427019c8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0.47058827, g: 0.36078432, b: 0.10980393, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
