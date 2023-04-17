@@ -55,7 +55,7 @@ public class Paddles : MonoBehaviour
             }
             else if (spawnPoint.transform.position.x >= -7 && spawnPoint.transform.position.x <= -1)
             {
-                spawnPoint.transform.position = new Vector2(spawnPoint.transform.position.x + Input.GetAxisRaw("Horizontal") * 0.01f, transform.position.y);
+                spawnPoint.transform.position = new Vector2(spawnPoint.transform.position.x + Input.GetAxisRaw("Horizontal") * 0.02f, transform.position.y);
             }
         }
         if (isLeftPaddle == false)
@@ -78,7 +78,7 @@ public class Paddles : MonoBehaviour
             }
             else if (spawnPoint.transform.position.x <= 7 && spawnPoint.transform.position.x >= 1)
             {
-                spawnPoint.transform.position = new Vector2(spawnPoint.transform.position.x + Input.GetAxisRaw("Horizontal2") * 0.01f, transform.position.y);
+                spawnPoint.transform.position = new Vector2(spawnPoint.transform.position.x + Input.GetAxisRaw("Horizontal2") * 0.02f, transform.position.y);
             }
         }
         rb.velocity = new Vector2(rb.velocity.x, movement * speed);
