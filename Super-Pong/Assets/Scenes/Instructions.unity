@@ -866,7 +866,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Right Shift \nKey "
+  m_Text: "Left Shift \nKey "
 --- !u!222 &765856590
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1481,7 +1481,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Left Shift \nKey "
+  m_Text: "Right Shift \nKey "
 --- !u!222 &1763664837
 CanvasRenderer:
   m_ObjectHideFlags: 0
