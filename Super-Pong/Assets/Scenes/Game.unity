@@ -1148,7 +1148,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.47058827, g: 0.36078432, b: 0.10980393, a: 0.2}
+  m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.62352943}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1382,7 +1382,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.47058827, g: 0.36078432, b: 0.10980393, a: 0.2}
+  m_Color: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 0.62352943}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1479,6 +1479,8 @@ MonoBehaviour:
   rightGoal: {fileID: 1632930542}
   leftText: {fileID: 1120832371}
   rightText: {fileID: 1737667163}
+  leftScore: 0
+  rightScore: 0
 --- !u!1 &1274186936
 GameObject:
   m_ObjectHideFlags: 0
