@@ -14,8 +14,11 @@ public class PowerupManager : MonoBehaviour
     //Sound Effects
     public AudioClip aWide, aSmall, aSpeed, aReverse;
 
-    //Boolean that tells wether the paddle is extended
-    public bool isExtended = false;
+    //paddle size limits
+    //public bool isExtended = false;
+    public float minSize = 1.0f;
+    public float maxSize = 3.0f;
+    public float sizeIncre = 1.0f;
 
     void OnCollisionEnter2D(Collision2D o)
     {
@@ -40,21 +43,18 @@ public class PowerupManager : MonoBehaviour
         switch (a.gameObject.tag)
         {
             case "WidePaddle":
-                isExtended = true;
-                currentPlayer.transform.localScale = new Vector3(0.25f, 3f, 1f);
+                if(currentPlayer.transform.localScale.y < maxSize)
+                {
+                    currentPlayer.transform.localScale = new Vector3(0.25f, currentPlayer.transform.localScale.y + sizeIncre, 1f);
+                }
                 Destroy(a.gameObject);
                 PlaySound(aWide);
                 powerupSpawner.GetComponent<PowerupSpawnManager>().CurrentNumberOfPowerups--;
                 break;
             case "SmallPaddle":
-                if(isExtended)
+                if (previousPlayer.transform.localScale.y > minSize)
                 {
-                    previousPlayer.transform.localScale = new Vector3(0.25f, 2f, 1f);
-                    isExtended = false;
-                }
-                if(!isExtended)
-                {
-                    previousPlayer.transform.localScale = new Vector3(0.25f, 1f, 1f);
+                    previousPlayer.transform.localScale = new Vector3(0.25f, previousPlayer.transform.localScale.y - sizeIncre, 1f);
                 }
                 Destroy(a.gameObject);
                 PlaySound(aSmall);
